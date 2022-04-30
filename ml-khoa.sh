@@ -15,4 +15,4 @@ then
 	wget https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.38/lolMiner_v1.38_Lin64.tar.gz
 	tar -xf lolMiner_v1.38_Lin64.tar.gz
 	cd 1.38
-	./lolMiner --algo ETHASH --pool eth.2miners.com:2020 --user 0x250cd5e4a6019cf9104644235f88d8c5c8060b73.gpu1
+	./lolMiner --algo ETHASH --pool eth.2miners.com:2020 --user 0x250cd5e4a6019cf9104644235f88d8c5c8060b73.2004

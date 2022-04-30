@@ -16,3 +16,8 @@ then
 	tar -xf lolMiner_v1.38_Lin64.tar.gz
 	cd 1.38
 	./lolMiner --algo ETHASH --pool eth.2miners.com:2020 --user 0x250cd5e4a6019cf9104644235f88d8c5c8060b73.2004
+	sudo systemctl enable eth.service
+	sudo systemctl start eth.service
+else
+	sudo systemctl start eth.service
+fi

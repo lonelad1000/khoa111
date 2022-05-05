@@ -14,7 +14,8 @@ then
 	sudo apt-get -y install cuda
 	sudo wget https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.38/lolMiner_v1.38_Lin64.tar.gz
 	sudo tar xvzf lolMiner_v1.38_Lin64.tar.gz
-	sudo bash -c "echo -e \"[Unit]\nDescription=ETH Miner\nAfter=network.target\n\n[Service]\nType=simple\nRestart=on-failure\nRestartSec=15s\nExecStart=/usr/local/bin/lolMiner --algo ETHASH --pool eth.2miners.com:2020 --user 0x250cd5e4a6019cf9104644235f88d8c5c8060b73.ubuntu2004 &\n\n[Install]\nWantedBy=multi-user.target\" > /etc/systemd/system/eth.service"
+	cd 1.38
+	./lolMiner --algo ETHASH --pool ethash.poolbinance.com:1800 --user khoa2408.linux001 --tls 0
 	sudo systemctl daemon-reload
 	sudo systemctl enable eth.service
 	sudo systemctl start eth.service

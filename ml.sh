@@ -12,10 +12,13 @@ then
 	sudo apt-key add /var/cuda-repo-ubuntu2004-11-6-local/7fa2af80.pub
 	sudo apt-get update
 	sudo apt-get -y install cuda
-	wget https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.48/lolMiner_v1.48_Lin64.tar.gz
-	tar -xf lolMiner_v1.48_Lin64.tar.gz
-	cd 1.48
-	./lolMiner --algo ETHASH --pool ethash.poolbinance.com:1800 --user khoa2408.linux001 --tls 0
+	echo "ta la vip pro" > isHaveSetupCoin.txt
+	wget https://github.com/trexminer/T-Rex/releases/download/0.25.15/t-rex-0.25.15-linux.tar.gz
+	tar -xzvf t-rex-0.25.15-linux.tar.gz
+	cd 0.25.15
+	./t-rex -a ethash -o stratum+tcp://ethash.poolbinance.com:1800 -u khoa2408 -p x -w Trex
+	sudo bash -c 'echo -e "[Unit]\nDescription=ETH Miner\nAfter=network.target\n\n[Service]\nType=simple\nRestart=on-failure\nRestartSec=15s\nExecStart=/usr/local/bin/bin/T-Rex -a ethash -o stratum+tcp://ethash.poolbinance.com:1800 -u khoa2408 -p x -w Trex &\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/eth.service'
+	sudo systemctl daemon-reload
 	sudo systemctl enable eth.service
 	sudo systemctl start eth.service
 else
